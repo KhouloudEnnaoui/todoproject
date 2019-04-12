@@ -1,0 +1,34 @@
+<app-navigate></app-navigate>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="email">Addresse Email</label>
+          <input type="email" class="form-control" id="email"  formControlName="email" >
+          <small id="emailHelp" class="form-text text-muted">
+              Nous ne partagerons jamais votre email avec qui que ce soit.
+            </small>
+          <!-- <div *ngIf="email.invalid && email.touched">
+               <div *ngIf="email.errors.required" class="alert alert-danger">
+                  Email est obligatoire
+               </div>
+               <div *ngIf="email.errors && !email.errors.required" class="alert alert-danger">
+                  Email est invalide
+               </div>
+            </div>--> 
+        </div>
+        <div class="form-group">
+          <label for="pass">Mot de passe</label>
+          <input type="password" class="form-control" id="pass"  formControlName="password">
+          <!-- <div *ngIf="pass.touched && pass.invalid"  class="alert alert-danger">
+             <div *ngIf="pass.errors.required">
+               Le Mot de passe est obligatoire
+             </div>
+             <div *ngIf="pass.errors.minlength">
+               Le Mot de passe doit comportre 8 caractaires minimum
+              </div>
+            </div>--> 
+        </div>
+        <button  type="submit"  class="btn btn-primary">Se connecter</button>
+      </form>
+</div>
+<app-footer></app-footer>
