@@ -11,7 +11,7 @@ import { User } from './../models/user';
 
 export class ConnectComponent implements OnInit {
    form :FormGroup;
-   
+   notfound=true
   constructor(fb:FormBuilder, private _userService: UserService, private router: Router) {
    this.form=fb.group({
       email: new FormControl('', [
@@ -38,10 +38,11 @@ export class ConnectComponent implements OnInit {
     this._userService.loginUser(user).subscribe(
         res => {
           console.log(res);
+          this.notfound=true;
           this.router.navigate(['/home']);
          localStorage.setItem('userc',JSON.stringify(res))
         },
-        err => {
+        err => {this.notfound=false;
           console.log(err);
         }
     )
